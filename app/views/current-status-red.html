@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Dashboard
+{% endblock %}
+
+{% block content %}
+
+
+<div class="red-banner">
+  <p style="display:inline;margin-left:30px" id="exclamation"><span>!</p>
+          <p style="display:inline;">Likely chargeable for NHS services.</span></p>
+</div>
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="home-tab" href="current-status" role="tab" aria-controls="home" aria-selected="true">Home office status</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="profile-tab" href="ovm-status" role="tab" aria-controls="profile" aria-selected="false">Overseas visitor manager status</a>
+  </li>
+</ul>
+
+
+<div class="container-fluid">
+  <div class="row">
+
+
+    <table class="ovm-table" style="box-shadow:0 4px 0 0 #d8dde0;">
+      <thead style="background-color:#005eb8;border-bottom:solid;border-width:thin;border-color: #C5C5C5;">
+        <tr>
+          <th scope="col" style="color:white; padding-left:20px;">Current status</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+
+        </tr>
+      </thead>
+
+      <tr>
+        <th scope="col" style="padding-left:20px">Immigration status from</th>
+        <th scope="col">Immigration status to</th>
+        <th scope="col">HO reference</th>
+        <th scope="col">BRP number</th>
+        <th scope="col">Visa product</th>
+        <th scope="col">Immigration status</th>
+        <th scope="col">Healthcare status</th>
+
+      </tr>
+
+      <tbody>
+        <tr style="border-bottom:solid;border-width:thin;border-color: #C5C5C5;">
+          <td style="padding-left:20px">26-Dec-2016</td>
+          <td>No expiry</td>
+          <td>1234567890</td>
+          <td>Not provided</td>
+          <td>EU settlement scheme</td>
+          <td>Indefinite leave to remain</td>
+          <td>Access to free NHS services</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <div class="container-fluid">
+      <div class="row">
+
+
+        <table class="ovm-table" style="box-shadow: 0 4px 0 0 #d8dde0;">
+          <thead style="background-color:#005eb8;border-bottom:solid;border-width:thin;border-color: #C5C5C5;">
+            <tr>
+              <th scope="col" style="color:white; padding-left:20px;">Historical status</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="height:80px;">
+              <td>
+                <div class="action-link">
+                  <img style="padding-left:20px;" src="images/arrow-right-circle.svg"><span id="gethistoric" onClick="toggle();"><span><a href="#" style="padding-left:30px; font-size:20px;">
+                        Get historical status
+                      </a></span>
+                </div>
+            </tr>
+            </td>
+
+
+            <!-- THE TOGGLE PART -->
+            <table>
+              <tbody>
+                <tr>
+                  <td style="position:relative; bottom:50px">
+
+                    <div class="search-history" id="hidethis" style="display:none;">
+                      <form style="padding-top:30px; padding-bottom:50px;">
+                        <div class="container">
+                          <div class="row">
+                            <div class="col">
+                              <h4>Start date</h4>
+                              <input type="date" class="form-control" placeholder="" maxlength="2">
+                            </div>
+
+
+                            <div class="col">
+                              <h4>End date</h4>
+                                <input type="date" class="form-control" placeholder="">
+                            </div>
+
+                          </div>
+                      </form>
+
+                      <div class="container-fluid">
+                        <div class="row">
+                          <div class="col" style="padding-top:20px;">
+                            <button type="submit" style="border-radius:4px;border-color:#C5C5C5;margin-top:20px;padding:10px;background-image: linear-gradient(white, #C5C5C5);" onClick="window.location.href='historic-status'">Search</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+          </tbody>
+        </table>
+
+      {% endblock %}
+
+      {%block pageScripts%}
+
+      <html>
+
+
+      <head>
+        <script>
+          document.getElementById("gethistoric").onclick = function() {
+            if (document.getElementById("hidethis").style.display == 'none') {
+              document.getElementById("hidethis").style.display =
+                'block'; // set to table-row instead of an empty string
+            } else {
+              document.getElementById("hidethis").style.display = 'none';
+            }
+          }
+        </script>
+      </head>
+
+      {% endblock %}

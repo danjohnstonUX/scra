@@ -1,0 +1,39 @@
+.green-banner
+{
+  background-color: #007f3b;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+
+  p{
+    color: white;
+    margin: 0px;
+    padding-left:50px;
+  }
+}
+
+.red-banner
+{
+  background-color: #d5281b
+;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+
+  p{
+    color: white;
+    margin: 0px;
+    padding-left:50px;
+  }
+}
+
+#exclamation {
+background-color: white;
+color: #d5281b;
+border-radius: 50%;
+background-position: center;
+font-weight: bold;
+font-size: 22px;
+padding: 5px 15px 5px 15px;
+
+}
