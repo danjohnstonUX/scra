@@ -18,7 +18,7 @@ Dashboard
     <a class="nav-link active" id="home-tab" href="current-status" role="tab" aria-controls="home" aria-selected="true">Home office status</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="profile-tab" href="ovm-status" role="tab" aria-controls="profile" aria-selected="false">Overseas visitor manager status</a>
+    <a class="nav-link" id="profile-tab"  href="ovm-status" role="tab" aria-controls="profile" aria-selected="false">Overseas visitor manager status</a>
   </li>
 </ul>
 
@@ -28,9 +28,9 @@ Dashboard
 
 
     <table class="ovm-table" style="box-shadow:0 4px 0 0 #d8dde0;">
-      <thead style="background-color:#DAE7F4;border-bottom:solid;border-width:thin;border-color: #C5C5C5;">
+      <thead style="background-color:#005eb8;border-bottom:solid;border-width:thin;border-color: #C5C5C5;">
         <tr>
-          <th scope="col" style="color:black; padding-left:20px;">Current status</th>
+          <th scope="col" style="color:white; padding-left:20px;">Current status</th>
           <th scope="col"></th>
           <th scope="col"></th>
           <th scope="col"></th>
@@ -71,9 +71,9 @@ Dashboard
 
 
         <table class="ovm-table" style="box-shadow: 0 4px 0 0 #d8dde0;">
-          <thead style="background-color:#DAE7F4;border-bottom:solid;border-width:thin;border-color: #C5C5C5;">
+          <thead style="background-color:#005eb8;border-bottom:solid;border-width:thin;border-color: #C5C5C5;">
             <tr>
-              <th scope="col" style="color:black; padding-left:20px;">Historical status</th>
+              <th scope="col" style="color:white; padding-left:20px;">Historical status</th>
               <th scope="col"></th>
               <th scope="col"></th>
               <th scope="col"></th>
@@ -94,31 +94,28 @@ Dashboard
               <th scope="col">Visa product</th>
               <th scope="col">Immigration status</th>
               <th scope="col">Healthcare status</th>
+
             </tr>
 
-          <tbody>
-            <tr style="border-bottom:solid;border-width:thin;border-color: #C5C5C5;">
-              <td style="padding-left:20px">26-Dec-2016</td>
-              <td>No expiry</td>
-              <td>1234567890</td>
-              <td>Not provided</td>
-              <td>EU settlement scheme</td>
-              <td>Indefinite leave to remain</td>
-              <td>Access to free NHS services</td>
-            </tr>
-
-            <tr>
-              <td>
-
-
-
-                <div class="action-link">
-                  <img style="padding-left:20px;" src="/images/arrow-right-circle.svg"><span id="gethistoric" onClick="toggle();"><span><a href="#" style="padding-left:30px; font-size:20px;">
-                        Get historical status
-                      </a></span>
-                </div>
-              </td>
-            </tr>
+            <tbody>
+              <tr style="border-bottom:solid;border-width:thin;border-color: #C5C5C5;">
+                <td style="padding-left:20px">26-Dec-2016</td>
+                <td>No expiry</td>
+                <td>1234567890</td>
+                <td>Not provided</td>
+                <td>EU settlement scheme</td>
+                <td>Indefinite leave to remain</td>
+                <td>Access to free NHS services</td>
+              </tr>
+              <tr style="border-bottom:solid;border-width:thin;border-color: #C5C5C5;">
+                <td style="padding-left:20px">26-Dec-2016</td>
+                <td>No expiry</td>
+                <td></td>
+                <td><strong>No results returned for this period.</strong></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
 
 
 
@@ -127,24 +124,24 @@ Dashboard
 
 
 
-            {% endblock %}
+        {% endblock %}
 
-            {%block pageScripts%}
+        {%block pageScripts%}
 
-            <html>
+        <html>
 
 
-            <head>
-              <script>
-                document.getElementById("gethistoric").onclick = function() {
-                  if (document.getElementById("hidethis").style.display == 'none') {
-                    document.getElementById("hidethis").style.display =
-                      'block'; // set to table-row instead of an empty string
-                  } else {
-                    document.getElementById("hidethis").style.display = 'none';
-                  }
-                }
-              </script>
-            </head>
+        <head>
+          <script>
+            document.getElementById("gethistoric").onclick = function() {
+              if (document.getElementById("hidethis").style.display == 'none') {
+                document.getElementById("hidethis").style.display =
+                  'block'; // set to table-row instead of an empty string
+              } else {
+                document.getElementById("hidethis").style.display = 'none';
+              }
+            }
+          </script>
+        </head>
 
-            {% endblock %}
+        {% endblock %}
