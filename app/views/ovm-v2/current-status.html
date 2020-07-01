@@ -83,9 +83,9 @@ Dashboard
             </tr>
           </thead>
           <tbody>
-            <tr style="height:80px;">
+            <tr>
               <td colspan="0">
-                <div class="action-link">
+                <div class="action-link" style="padding-top:30px;">
                   <img style="padding-left:20px;" src="/images/arrow-right-circle.svg"><span id="gethistoric" onClick="toggle();"><span><a href="#" style="padding-left:30px; font-size:20px;">
                         Get historical status
                       </a></span>
@@ -98,12 +98,12 @@ Dashboard
             <!-- THE TOGGLE PART -->
 
 
-                  <td colspan="0">
+            <td>
                     <div class="search-history" id="hidethis" style="display:none;">
                       <form style="padding-top:30px; padding-bottom:50px;padding-left:20px">
                         <div class="container" style="margin:0px;">
                           <div class="row">
-                            <div class="col-lg">
+                            <div>
                               <h4>Start date</h4>
 
 
@@ -127,16 +127,16 @@ Dashboard
                               </form>
                               <div class="container">
                                 <div class="row">
-                                  <div class="col" style="padding-top:20px;">
-                                    <button type="submit" style="border-radius:4px;border-color:#C5C5C5;margin-top:20px;padding:10px;background-image: linear-gradient(white, #C5C5C5);" onClick="window.location.href='/ovm-v2/historic-status'">Search</button>
-                                  </div>
+                                  <form class="col" style="padding-top:20px;">
+                                    <input type="button" value="Search" style="border-radius:4px;border-color:#C5C5C5;margin-top:20px;padding:10px;background-image: linear-gradient(white, #C5C5C5);" onClick="window.location.href='/ovm-v2/historic-status'"></input>
+                                  </form>
                                 </div>
                               </div>
 
                             </div>
 
 
-                            <div class="col-lg">
+                            <div>
 
                               <h4>End date</h4>
                               <form>
@@ -165,33 +165,32 @@ Dashboard
 
 
 
-
+                  </div>
+                </div>
       </div>
     </div>
-  </div>
-</div>
-</td>
-</tbody>
-</table>
+    </td>
+    </tbody>
+    </table>
 
-{% endblock %}
+    {% endblock %}
 
-{%block pageScripts%}
+    {%block pageScripts%}
 
-<html>
+    <html>
 
 
-<head>
-  <script>
-    document.getElementById("gethistoric").onclick = function() {
-      if (document.getElementById("hidethis").style.display == 'none') {
-        document.getElementById("hidethis").style.display =
-          'block'; // set to table-row instead of an empty string
-      } else {
-        document.getElementById("hidethis").style.display = 'none';
-      }
-    }
-  </script>
-</head>
+    <head>
+      <script>
+        document.getElementById("gethistoric").onclick = function() {
+          if (document.getElementById("hidethis").style.display == 'none') {
+            document.getElementById("hidethis").style.display =
+              'block'; // set to table-row instead of an empty string
+          } else {
+            document.getElementById("hidethis").style.display = 'none';
+          }
+        }
+      </script>
+    </head>
 
-{% endblock %}
+    {% endblock %}
