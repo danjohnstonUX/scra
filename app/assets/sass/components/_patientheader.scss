@@ -1,14 +1,37 @@
-.patient-header
-{
+// .patient-header
+// {
+//
+//   background-color: #00006F;
+//   padding: 0px;
+//   margin: 0px;
+//   p
+//   {
+//     color: white;
+//     padding-top: 5px;
+//     padding-bottom: 5px;
+//     margin:0px;
+//   }
+// }
 
+.patient-header {
+  display: inline-block;
+  /* Remove bullet points; allow greater control of positioning */
+  padding: 0;
+  /* Override defaults for lists */
+  margin: 0;
+  /* Override defaults for lists */
+  width: 100%;
+  /* Get the row full width */
   background-color: #00006F;
-  padding: 0px;
-  margin: 0px;
-  p
-  {
-    color: white;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    margin:0px;
+  color: white;
+  list-style-type: none;
+
+  li {
+    display: inline-block;
+    padding-right: 40px;
+    padding-top: 10px;
+    @media only screen and (max-width:760px), (min-device-width: 768px) and (max-device-width: 1024px) {
+      display: block;
+    }
   }
 }

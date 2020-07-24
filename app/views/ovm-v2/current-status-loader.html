@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Dashboard
+{% endblock %}
+
+{% block content %}
+
+
+<div class="green-banner">
+  <img style="padding-left:30px; display:inline-block;" src="/images/tick-icon.svg" alt="green tick"><span style="color:white;padding-left:20px;">
+    Access to free NHS services.</p></span>
+</div>
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="home-tab" href="current-status" role="tab" aria-controls="home" aria-selected="true">Home office status</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="profile-tab" href="ovm-status" role="tab" aria-controls="profile" aria-selected="false">Overseas visitor manager status</a>
+  </li>
+</ul>
+
+
+<div class="container-fluid">
+  <div class="col-12">
+
+    <div class="row">
+      <table role="table" class="ovm-table" style="box-shadow:0 4px 0 0 #d8dde0;">
+        <thead role="rowgroup" style="background-color:#DAE7F4;border-bottom:solid;border-width:thin;border-color: #C5C5C5;">
+          <tr role="row">
+            <th role="columnheader" scope="col" style="color:black; padding-left:20px;" colspan="7">Current status</th>
+
+          </tr>
+        </thead>
+
+        <thead role="rowgroup">
+          <tr role="row">
+            <th scope="col" style="padding-left:20px">Immigration status from</th>
+            <th scope="col">Immigration status to</th>
+            <th scope="col">HO reference</th>
+            <th scope="col">BRP number</th>
+            <th scope="col">Visa type</th>
+            <th scope="col">Immigration status</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody role="rowgroup">
+          <tr role="row" style="border-bottom:solid;border-width:thin;border-color: #C5C5C5;">
+            <td role="cell" style="padding-left:20px">26-Dec-2016</td>
+            <td role="cell">No expiry</td>
+            <td role="cell">1234567890</td>
+            <td role="cell">Not provided</td>
+            <td role="cell">EU settlement scheme</td>
+            <td role="cell">Indefinite leave to remain</td>
+
+          </tr>
+
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="col-12">
+    <div class="row">
+
+
+      <table class="ovm-table" style="box-shadow: 0 4px 0 0 #d8dde0;">
+        <thead style="background-color:#DAE7F4;border-bottom:solid;border-width:thin;border-color: #C5C5C5;">
+          <tr>
+            <th scope="col" style="color:black; padding-left:20px;" colspan="7">Historical status</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="0">
+              <div class="action-link" style="padding-top:30px;">
+                <img style="padding-left:20px;" src="/images/arrow-right-circle.svg"><span id="gethistoric" onClick="toggle();"><span><a href="#" style="padding-left:30px; font-size:20px;">
+                      Get historical status
+                    </a></span>
+              </div>
+          </tr>
+          </td>
+
+
+
+          <!-- THE TOGGLE PART -->
+
+
+          <td>
+            <div class="search-history" id="hidethis" style="display:none;">
+              <form style="padding-top:30px; padding-bottom:50px;padding-left:20px">
+                <div class="error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" style="display:none;" id="error-summary">
+                  <h2 class="error-summary__title" id="error-summary-title">
+                    There is a problem
+                  </h2>
+                  <div class="nhsuk-error-summary__body">
+                    <ul class="nhsuk-list nhsuk-error-summary__list">
+                      <li>
+                        <a href="#dob-start-error">All date fields must be filled in </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="container" style="margin:0px;">
+                  <div class="row">
+                    <div class="col-6">
+                      <div id="start-dob">
+                        <h4>Start date</h4>
+
+
+                        <form>
+                          <fieldset style="padding-right:100px">
+                            <small id="emailHelp" class="form-text text-muted">For example, 30 03 2016</small>
+                            <span class="error-message" id="dob-start-error" style="display:none;">
+                              <span>Error:</span> Start date must be complete
+                            </span>
+                            <div class="row">
+                              <div class="col">
+                                <label for="startday">Day</label>
+                                <input type="number" id="startday" name="date" min="1" max="31" />
+                              </div>
+                              <div class="col">
+                                <label for="startmonth">Month</label>
+                                <input type="number" id="startmonth" name="month" min="1" max="12" />
+                              </div>
+                              <div class="col">
+                                <label for="startyear">Year</label>
+                                <input type="number" id="startyear" name="year" min="1900" max="9999" />
+                              </div>
+                          </fieldset>
+                        </form>
+
+
+
+
+                        <form style="padding-top:20px;" action="/ovm-v2/historic-status" id="submit-button">
+                          <input  type="submit" id="button" onclick="timeFunction()"  style="border-radius:4px;border-color:#C5C5C5;margin-top:20px;padding:10px;background-image: linear-gradient(white, #C5C5C5);" href="/ovm-v2/historic-status" value="submit" ></input>
+                        </form>
+                        <!-- <div class="loader" id="loading" style="transition-duration: 5s; display: none;"></div> -->
+
+                      </div>
+
+                    </div>
+
+                    <div class="col-6">
+                      <div id="end-dob">
+
+                        <h4>End date</h4>
+                        <form>
+                          <fieldset>
+                            <small id="emailHelp" class="form-text text-muted">For example, 30 03 2017</small>
+                            <span class="error-message" id="dob-end-error" style="display:none;">
+                              <span>Error:</span> End date must be complete
+                            </span>
+                            <div class="row">
+                              <div class="col">
+                                <label for="enddate">Day</label>
+                                <input type="number" id="endday" name="date" min="1" max="31" />
+                              </div>
+                              <div class="col">
+                                <label for="endmonth">Month</label>
+                                <input type="number" id="endmonth" name="month" min="1" max="12" />
+                              </div>
+                              <div class="col">
+                                <label for="endyear">Year</label>
+                                <input type="number" id="endyear" name="year" min="1900" max="9999" />
+                              </div>
+                          </fieldset>
+                        </form>
+
+                      </div>
+
+
+
+
+
+
+
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </td>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</div>
+
+{% endblock %}
+
+{%block pageScripts%}
+
+<html>
+
+
+<head>
+  <script>
+    document.getElementById("gethistoric").onclick = function() {
+      if (document.getElementById("hidethis").style.display == 'none') {
+        document.getElementById("hidethis").style.display =
+          'block'; // set to table-row instead of an empty string
+      } else {
+        document.getElementById("hidethis").style.display = 'none';
+      }
+    }
+  </script>
+</head>
+
+<head>
+  <script>
+
+  // document.getElementById("button").onclick = function () {
+  //   if (document.getElementById("loading").style.display == 'none') {
+  //     document.getElementById("loading").style.display =
+  //       'block'; // set to table-row instead of an empty string
+  //  }
+  //   else {
+  //     document.getElementById("loading").style.display = 'none';
+  //   }
+  //
+  //        function timeFunction() {
+  //           setTimeout(function(){ alert("After 5 seconds!"); }, 5000);
+  //       }
+  //
+  // }
+  //
+
+// $(function(){
+//   $("#submit-button").delay(3000).submit();
+// })
+
+$('#submit-button').submit(function (e) {
+    var form = this;
+    e.preventDefault();
+    setTimeout(function () {
+        form.submit();
+    }, 5000); // in milliseconds
+
+  </script>
+</head>
+
+{% endblock %}

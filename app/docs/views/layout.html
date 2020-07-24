@@ -9,24 +9,69 @@
 
 <!-- Add your custom CSS or Sass in /app/assets/sass/main.scss -->
 {% block headCSS %}
-  <link href="/css/main.css" rel="stylesheet">
+<link href="/css/main.css" rel="stylesheet">
 {% endblock %}
 
 <!-- Set the page title inside the pageTitle block -->
 {% block pageTitle %}
-  SCRa prototype kit
+SCRa prototype kit
 {% endblock %}
 
 <!-- Header goes inside the header block -->
 <!-- More info and code for the header can be found at https://service-manual.nhs.uk/design-system/components/header -->
 {% block header %}
+
 <div class="scr-header">
-<p>Find a patient<span style="padding-left:50px">Help</span><span style="padding-left:50px">Exit<span style="padding-left:1250px"><img src="images/NHS 10mm - RGB Blue.jpg" alt="NHS logo" width="117.2" height="47.2"></span></p>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-10">
+        <ul>
+          <li>
+            Find a patient
+            </li>
+            <li>
+              Help
+              </li>
+              <li>
+                Exit
+                </li>
+          </ul>
+
+      </div>
+
+      <div class="col-1">
+        <img id="logo" src="images/NHS 10mm - RGB Blue.jpg" alt="NHS logo" width="117.2" height="47.2">
+      </div>
+    </div>
+
 
   </div>
-<div class="patient-header">
-<p style="padding-left:50px"><strong>Samantha brannigan</strong><span style="padding-left:50px">DOB: 11/09/1975</span><span style="padding-left:50px">Female<span style="padding-left:50px">NHS No: 123456789</span><span style="padding-left:50px">GP Practice</span><span style="padding-left:50px">Address : 1 Primrose Avenue, Pynes Hill, Rydon Lane, Exeter, Devon, United Kingdom, EX2 5SA</span></span></p>
 </div>
+
+
+<div>
+  <ul class="patient-header">
+    <li>
+      Samantha Brannigan
+    </li>
+    <li>
+      DOB: 11/09/1975
+    </li>
+    <li>
+      Female
+    </li>
+    <li>
+      NHS No: 123456789
+    </li>
+    <li>
+      GP Practice
+      </li>
+      <li>
+        Address : 1 Primrose Avenue, Pynes Hill, Rydon Lane, Exeter, Devon, United Kingdom, EX2 5SA
+        </li>
+  </ul>
+    </div>
+
 
 <ul class="nav nav-tabs" id="myTab" role="tablist" style="background-color:#DAE7F4; margin-bottom:20px">
   <li class="nav-item">
@@ -48,17 +93,17 @@
 <!-- More info and code for the footer can be found at https://service-manual.nhs.uk/design-system/components/footer -->
 {% block footer %}
 <footer class="footer">
-    <div class="container">
-      <span class="text-muted">Place sticky footer content here.</span>
-    </div>
-  </footer>
+  <div class="container">
+    <span class="text-muted">Place sticky footer content here.</span>
+  </div>
+</footer>
 {% endblock %}
 
 {% block bodyEnd %}
-  {% block scripts %}
-    <!-- Custom JavaScript files can be added to this file -->
-    {% include "includes/scripts.html" %}
-    <!-- For adding page specific JavsScript -->
-    {% block pageScripts %}{% endblock %}
-  {% endblock %}
+{% block scripts %}
+<!-- Custom JavaScript files can be added to this file -->
+{% include "includes/scripts.html" %}
+<!-- For adding page specific JavsScript -->
+{% block pageScripts %}{% endblock %}
+{% endblock %}
 {% endblock %}
