@@ -43,6 +43,7 @@ Dashboard
             <th scope="col">BRP number</th>
             <th scope="col">Visa type</th>
             <th scope="col">Immigration status</th>
+            <th scope="col">Healthcare status</th>
 
           </tr>
 
@@ -56,6 +57,7 @@ Dashboard
             <td role="cell">Not provided</td>
             <td role="cell">EU settlement scheme</td>
             <td role="cell">Indefinite leave to remain</td>
+            <td>Access to free NHS services</td>
 
           </tr>
 
@@ -142,11 +144,19 @@ Dashboard
 
 
                         <form style="padding-top:20px;" action="/ovm-v2/historic-status" id="submit-button">
-                          <input  type="submit" id="button" onclick="timeFunction()"  style="border-radius:4px;border-color:#C5C5C5;margin-top:20px;padding:10px;background-image: linear-gradient(white, #C5C5C5);" href="/ovm-v2/historic-status" value="submit" ></input>
+                          <div class="row">
+                          <div class="col-4">
+                          <input  type="submit" id="button"  style="border-radius:4px;border-color:#C5C5C5;margin-top:20px;padding:10px;background-image: linear-gradient(white, #C5C5C5);" href="/ovm-v2/historic-status" value="submit" ></input>
+                        </div>
+                        <div class="col-8">
+                          <span style="display:inline;">
+                          <div class="loader" id="loading" style="display:none;" ></div></span>
+                        </div>
                         </form>
-                        <!-- <div class="loader" id="loading" style="transition-duration: 5s; display: none;"></div> -->
+
 
                       </div>
+                    </div>
 
                     </div>
 
@@ -219,32 +229,25 @@ Dashboard
 <head>
   <script>
 
-  // document.getElementById("button").onclick = function () {
-  //   if (document.getElementById("loading").style.display == 'none') {
-  //     document.getElementById("loading").style.display =
-  //       'block'; // set to table-row instead of an empty string
-  //  }
-  //   else {
-  //     document.getElementById("loading").style.display = 'none';
-  //   }
-  //
-  //        function timeFunction() {
-  //           setTimeout(function(){ alert("After 5 seconds!"); }, 5000);
-  //       }
-  //
-  // }
-  //
-
-// $(function(){
-//   $("#submit-button").delay(3000).submit();
-// })
 
 $('#submit-button').submit(function (e) {
     var form = this;
+    $(".loader").show();
     e.preventDefault();
     setTimeout(function () {
         form.submit();
     }, 5000); // in milliseconds
+  });
+
+// document.getElementById("submit-button").onsubmit = function(e){
+//   var form = this;
+//   document.getElementsByClassName("loader").style.display = 'block';
+//   e.preventDefault();
+//   setTimeout(function (){
+//     form.submit();
+//   }, 5000);
+//
+// });
 
   </script>
 </head>
