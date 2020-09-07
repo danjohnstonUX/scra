@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Dashboard
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="green-banner">
+  <img style="padding-left:30px; display:inline-block;" src="/images/tick-icon.svg"><span style="color:white;padding-left:20px;">
+    Access to free NHS services.</span>
+</div>
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="home-tab" href="current-status" role="tab" aria-controls="home" aria-selected="true">Home office status</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="profile-tab" href="ovm-status" role="tab" aria-controls="profile" aria-selected="false">Overseas visitor manager status</a>
+  </li>
+</ul>
+
+
+<div class="container-fluid">
+  <div class="row">
+
+
+    <table class="ovm-table" style="box-shadow:0 4px 0 0 #d8dde0;">
+      <thead role="rowgroup" style="background-color:#DAE7F4;border-bottom:solid;border-width:thin;border-color: #C5C5C5;">
+        <tr role="row">
+          <th role="columnheader" scope="col" style="color:black; padding-left:20px;" colspan="5">Current status</th>
+          <th colspan="2">
+            <div class="action-link">
+              <span><a href="#" style="padding-left:180px;padding-right:10px;">
+                    Read guidance
+                  </a><img  src="/images/plus_symbol.svg"></span>
+            </div>
+          </th>
+
+        </tr>
+
+      </thead>
+
+      <tr>
+        <th width="14%" scope="col" style="padding-left:20px">Start date</th>
+        <th width="14%" scope="col">End date</th>
+        <th width="20%" scope="col">HO reference</th>
+        <th width="14%" scope="col">BRP number</th>
+        <th width="14%" scope="col">Visa type</th>
+        <th width="14%" scope="col">Immigration status</th>
+        <th width="14%" scope="col">Healthcare status</th>
+
+      </tr>
+
+      <tbody>
+        <tr role="row" style="border-bottom:solid;border-width:thin;border-color: #C5C5C5;">
+          <td width="14%" role="cell" style="padding-left:20px">22-Aug-2020</td>
+          <td width="14%" role="cell">No expiry</td>
+          <td width="20%" role="cell">ABC12/345678/A</td>
+          <td width="14%" role="cell">AB1234567</td>
+          <td width="14%" role="cell">Patient is now a British citizen</td>
+          <td width="14%" role="cell">N/A</td>
+          <td width="14%" role="cell">N/A</td>
+
+        </tr>
+
+
+      </tbody>
+    </table>
+
+    <div class="container-fluid">
+      <div class="row">
+
+
+        <table class="ovm-table" style="box-shadow: 0 4px 0 0 #d8dde0;">
+          <thead style="background-color:#DAE7F4;border-bottom:solid;border-width:thin;border-color: #C5C5C5;">
+
+
+            <tr>
+              <th scope="col" style="color:black; padding-left:20px;">Historical status</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr style="height:80px;">
+              <td style="padding-left:20px;" colspan="7"><strong>Showing search results for 22-Aug-2019 to 30-Dec-2020:</strong></td>
+            </tr>
+            <tr>
+              <th width="14%" scope="col" style="padding-left:20px;">Immigration status from</th>
+              <th width="14%" scope="col">Immigration status to</th>
+              <th width="20%" scope="col">HO reference</th>
+              <th width="14%" scope="col">BRP number</th>
+              <th width="14%" scope="col">Visa type</th>
+              <th width="14%" scope="col">Immigration status</th>
+              <th width="14%" scope="col">Healthcare status</th>
+
+            </tr>
+
+            <tbody>
+              <tr style="border-bottom:solid;border-width:thin;border-color: #C5C5C5;">
+                <td width="14%" style="padding-left:20px">01-Dec-2019</td>
+                <td width="14%">21-Aug-2020</td>
+                <td width="20%">ABC12/345678/A</td>
+                <td width="14%">AB1234567</td>
+                <td width="14%">Green: paid or exempt from health surcharge</td>
+                <td width="14%">N/A</td>
+                <td width="14%">N/A</td>
+              </tr>
+
+
+
+        <table class="ovm-table" style="box-shadow: 0 4px 0 0 #d8dde0;margin-top:0px;">
+
+          <tr style="background-color:#F5F5F5" height="30px">
+            <th colspan="0">
+
+              <div class="action-link">
+                <img style="padding-left:20px;" src="/images/arrow-right-circle.svg"><span id="gethistoric" onClick="toggle();"><span><a href="#" style="padding-left:30px; font-size:20px;">
+                      Search new date range
+                    </a></span>
+              </div>
+              <div class="search-history" id="hidethis" style="display:none;">
+                <form style="padding-top:30px; padding-bottom:50px;padding-left:20px">
+                  <div class="container" style="margin:0px;">
+                    <div class="row">
+                      <div>
+                        <h4>Start date</h4>
+
+
+                        <form>
+                          <fieldset style="padding-right:100px">
+                            <small id="emailHelp" class="form-text text-muted">For example, 30 03 2016</small>
+                            <div class="row">
+                              <div class="col">
+                                <label for="date">Day</label>
+                                <input type="number" id="d" name="date" min="1" max="31" />
+                              </div>
+                              <div class="col">
+                                <label for="month">Month</label>
+                                <input type="number" id="m" name="month" min="1" max="12" />
+                              </div>
+                              <div class="col">
+                                <label for="year">Year</label>
+                                <input type="number" id="y" name="year" min="1900" max="9999" />
+                              </div>
+                          </fieldset>
+                        </form>
+                        <div class="container">
+                          <div class="row">
+                            <form class="col" style="padding-top:20px;">
+                              <input type="button" value="Search" style="border-radius:4px;border-color:#C5C5C5;margin-top:20px;padding:10px;background-image: linear-gradient(white, #C5C5C5);"
+                                onClick="window.location.href='/ovm-v2/historic-status'"></input>
+                            </form>
+                          </div>
+                        </div>
+
+                      </div>
+
+
+                      <div>
+
+                        <h4>End date</h4>
+                        <form>
+                          <fieldset>
+                            <small id="emailHelp" class="form-text text-muted">For example, 30 03 2016</small>
+                            <div class="row">
+                              <div class="col">
+                                <label for="date">Day</label>
+                                <input type="number" id="d" name="date" min="1" max="31" />
+                              </div>
+                              <div class="col">
+                                <label for="month">Month</label>
+                                <input type="number" id="m" name="month" min="1" max="12" />
+                              </div>
+                              <div class="col">
+                                <label for="year">Year</label>
+                                <input type="number" id="y" name="year" min="1900" max="9999" />
+                              </div>
+                          </fieldset>
+                        </form>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                      {% endblock %}
+
+                      {%block pageScripts%}
+
+                      <html>
+
+
+                      <head>
+                        <script>
+                          document.getElementById("gethistoric").onclick = function() {
+                            if (document.getElementById("hidethis").style.display == 'none') {
+                              document.getElementById("hidethis").style.display =
+                                'block'; // set to table-row instead of an empty string
+                            } else {
+                              document.getElementById("hidethis").style.display = 'none';
+                            }
+                          }
+                        </script>
+                      </head>
+
+                      {% endblock %}
